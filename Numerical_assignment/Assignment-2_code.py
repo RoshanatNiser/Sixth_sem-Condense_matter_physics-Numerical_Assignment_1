@@ -60,3 +60,4 @@ plt.savefig("Ek_periodicity_2a_normalized.png", dpi=300)
 plt.close()
 
 
+
