@@ -7,7 +7,9 @@ derived from Bloch’s theorem in one dimension.
 
 Starting from the Bloch Hamiltonian
 
-H_k u_k = E_k u_k,
+\[
+H_k\,u_k = E_k\,u_k,
+\]
 
 the amplitude of the periodic potential is taken to zero while the lattice periodicity
 is retained. The goal is to visualize the resulting energy bands and understand their
@@ -17,49 +19,69 @@ dependence on lattice periodicity.
 
 ## Theory Background
 
-For a one-dimensional lattice with periodicity `a`, Bloch’s theorem gives
+For a one-dimensional lattice with periodicity \( a \), Bloch’s theorem gives
 
-ψ_k(x) = exp(i k x) u_k(x),
+\[
+\psi_k(x) = e^{ikx}\,u_k(x),
+\]
 
-where u_k(x) is periodic with the lattice.
+where \( u_k(x) \) is periodic with the lattice:
+
+\[
+u_k(x+a) = u_k(x).
+\]
 
 In the free-electron (Sommerfeld) limit, the Bloch Hamiltonian reduces to
 
-H_k = (1/2m) ( -iħ d/dx + ħk )².
+\[
+H_k = \frac{1}{2m}\left(-i\hbar\frac{d}{dx} + \hbar k\right)^2.
+\]
 
 Choosing a plane-wave basis consistent with lattice periodicity,
 
-u_m(x) = exp(i 2πm x / a),
+\[
+u_m(x) = e^{i \frac{2\pi m}{a} x},
+\]
 
 the energy eigenvalues are
 
-E_k(m) = (ħ² / 2m) ( k + 2πm/a )².
+\[
+E_k(m) = \frac{\hbar^2}{2m}\left(k + \frac{2\pi m}{a}\right)^2.
+\]
 
-Each integer `m` corresponds to a distinct energy band.
+Each integer \( m \) corresponds to a distinct energy band.
 
 ---
 
 ## Numerical Tasks
 
-### Q1: Periodicity = a
+### Q1: Periodicity \( a \)
 
 Energy bands are computed and plotted for
 
-k ∈ [ -6π/a , +6π/a ]
+\[
+k \in \left[-\frac{6\pi}{a},\,\frac{6\pi}{a}\right]
+\]
 
 using
 
-E_k(m) = (ħ² / 2m) ( k + 2πm/a )².
+\[
+E_k(m) = \frac{\hbar^2}{2m}\left(k + \frac{2\pi m}{a}\right)^2.
+\]
 
-The integer `m` labels the band index.
+The integer \( m \) labels the band index.
 
-### Q2: Periodicity = 2a
+---
 
-The lattice periodicity is doubled to `2a`, leading to
+### Q2: Periodicity \( 2a \)
 
-E_k(m) = (ħ² / 2m) ( k + πm/a )².
+The lattice periodicity is doubled to \( 2a \), leading to
 
-The band structure is plotted over the same k-range and compared with Q1.
+\[
+E_k(m) = \frac{\hbar^2}{2m}\left(k + \frac{\pi m}{a}\right)^2.
+\]
+
+The band structure is plotted over the same \( k \)-range and compared with Q1.
 
 ---
 
@@ -71,31 +93,36 @@ The band structure is plotted over the same k-range and compared with Q1.
   - Generates and saves plots automatically
 
 - Output plots:
-  - `Ek_periodicity_a.png`
-  - `Ek_periodicity_2a.png`
+  - `Ek_periodicity_a_normalized.png`
+  - `Ek_periodicity_2a_normalized.png`
 
 ---
 
 ## Normalized Momentum and Brillouin Zone Boundaries
 
-The crystal momentum axis is normalized as k/(π/a), rendering it dimensionless.
-With this choice, Brillouin zone boundaries occur at integer values of the
-normalized momentum.
+The crystal momentum axis is normalized as
+
+\[
+\frac{k}{\pi/a},
+\]
+
+rendering it dimensionless. With this choice, Brillouin zone boundaries occur at
+integer values of the normalized momentum.
 
 Vertical dashed lines are drawn in the plots at these integer positions to explicitly
-indicate zone boundaries. This representation makes zone folding and the
-effect of changing lattice periodicity immediately visible.
+indicate zone boundaries. This representation makes zone folding and the effect of
+changing lattice periodicity immediately visible.
 
 ---
+
 ## How to Use
 
 1. Clone or download this repository.
 2. Ensure Python 3 is installed with the following packages:
-   - numpy
-   - matplotlib
+   - `numpy`
+   - `matplotlib`
 3. Run the script:
    ```bash
    python sommerfeld_band_structure.py
-
 4. The generated plots will be saved in the same directory.
 
